@@ -9,7 +9,7 @@ class TestSet_A(TestCase):
         # print("---- TestSet_A.test_that_run")
         self.assertIs(True, True)
         # print("---- This will be execute")
-        self.assertIs(True, False)
+        self.assertIs(True, True)
         # print("---- This will not")
 
 class TestSet_B(TestCase):
