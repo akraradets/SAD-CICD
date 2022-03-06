@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  django:
+    image: django-4.0.2
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - ./docs:/root/docs
+    # For Dev
+    command: tail -f /dev/null
+    # For Test
+    # command: python3 manage.py runserver 0.0.0.0:8000
