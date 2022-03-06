@@ -1,7 +1,7 @@
-name: My First Action
+name: My First Script
 on: [push]
 jobs:
-  myOwnTestAction:
+  myOwnTestScript:
     runs-on: ubuntu-20.04
     steps:
       - run: pwd
