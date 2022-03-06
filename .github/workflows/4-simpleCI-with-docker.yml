@@ -7,7 +7,7 @@ jobs:
       - name: Clone Reposistory
         uses: actions/checkout@v2
       - name: Create Docker
-        uses: docker-compose up --build -d
+        run: docker-compose up --build -d
       # - name: Set up Python 3.10.2
       #   uses: actions/setup-python@v2
       #   with:
