@@ -9,4 +9,4 @@ jobs:
       - name: Create Docker
         run: docker-compose up --build -d
       - name: Automate test
-        run: docker-compose exec django python3 manage.py test
+        run: docker-compose exec -T django python3 manage.py test
