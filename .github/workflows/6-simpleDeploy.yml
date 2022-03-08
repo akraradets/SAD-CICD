@@ -1,21 +1,19 @@
 name: 6-simpleDeploy
 on: [push]
 jobs:
-  integration:
+  deploy:
     runs-on: self-hosted
     steps:
-      - name: Deploy to Staging server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          ARGS: "-rltgoDzvO"
-          SOURCE: "dist/"
-          REMOTE_HOST: ta-a.cs.ait.ac.th
-          REMOTE_USER: ta
-          TARGET: ~/cicdapp
-          # EXCLUDE: ??
-      # - name: Clone Reposistory
-      #   uses: actions/checkout@v2
+
+      - name: Clone Reposistory
+        uses: actions/checkout@v2
+        working-directory: ~/project
+      - name: compose up
+        run: sudo docker-compose up --build -d
+        working-directory: ~/project
+      - name: start service
+        run: sudo docker-compose exec django-4.0.2 python3 manage.py runserver 0.0.0.0:8000
+        working-directory: ~/project
       # - name: Set up Python ${{ matrix.python-version }}
       #   uses: actions/setup-python@v2
       #   with:
