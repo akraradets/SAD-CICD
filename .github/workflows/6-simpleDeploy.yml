@@ -1,4 +1,4 @@
-name: 5-matrixCI
+name: 6-simpleDeploy
 on: [push]
 jobs:
   integration:
