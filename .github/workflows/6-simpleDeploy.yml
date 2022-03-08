@@ -8,12 +8,12 @@ jobs:
         uses: actions/checkout@v2
         with: 
           clean: false
+      - name: compose down
+        run: sudo docker-compose down
       - name: compose up
         run: sudo docker-compose up --build -d 
-        working-directory: ~/project
       - name: start service
         run: sudo docker-compose exec django-4.0.2 python3 manage.py runserver 0.0.0.0:8000
-        working-directory: ~/project
       # - name: Set up Python ${{ matrix.python-version }}
       #   uses: actions/setup-python@v2
       #   with:
