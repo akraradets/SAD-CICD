@@ -4,16 +4,12 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - name: to dir
-        run: |
-          cd ~/project
-          ls -la
       - name: Clone Reposistory
         uses: actions/checkout@v2
         with: 
           clean: false
       - name: compose up
-        run: sudo docker-compose up --build --no-cache -d 
+        run: sudo docker-compose up --build -d 
         working-directory: ~/project
       - name: start service
         run: sudo docker-compose exec django-4.0.2 python3 manage.py runserver 0.0.0.0:8000
