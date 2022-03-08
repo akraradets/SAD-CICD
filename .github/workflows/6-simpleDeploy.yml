@@ -1,0 +1,31 @@
+name: 5-matrixCI
+on: [push]
+jobs:
+  integration:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Deploy to Staging server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvO"
+          SOURCE: "dist/"
+          REMOTE_HOST: ta-a.cs.ait.ac.th
+          REMOTE_USER: ta
+          TARGET: ~/cicdapp
+          # EXCLUDE: ??
+      # - name: Clone Reposistory
+      #   uses: actions/checkout@v2
+      # - name: Set up Python ${{ matrix.python-version }}
+      #   uses: actions/setup-python@v2
+      #   with:
+      #     python-version: ${{ matrix.python-version }}
+      # - name: Install pip
+      #   run: |
+      #     python3 -m pip install --upgrade pip
+      #     pip3 install django==4.0.2
+      #     pip3 install gunicorn==20.1.0
+      # - name: Automate test
+      #   run: |
+      #     python3 manage.py test
+      #   working-directory: ./docs
