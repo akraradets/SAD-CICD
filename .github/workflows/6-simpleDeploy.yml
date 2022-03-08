@@ -4,11 +4,14 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-
+      - name: to dir
+        run: |
+          cd ~/project
+          ls -la
       - name: Clone Reposistory
         uses: actions/checkout@v2
         with: 
-          path: ~/project
+          clean: false
       - name: compose up
         run: sudo docker-compose up --build -d
         working-directory: ~/project
