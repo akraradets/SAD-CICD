@@ -2,7 +2,7 @@ name: 5-matrixCI
 on: [push]
 jobs:
   integration:
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
     strategy:
       # if true, when job die, other will die. "operation cancelled."
       fail-fast: false
