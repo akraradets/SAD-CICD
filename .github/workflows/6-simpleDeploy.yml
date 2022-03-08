@@ -12,8 +12,8 @@ jobs:
         run: sudo docker-compose down
       - name: compose up
         run: sudo docker-compose up --build -d 
-      - name: start service
-        run: sudo docker-compose exec django-4.0.2 python3 manage.py runserver 0.0.0.0:8000
+      # - name: start service
+      #   run: sudo docker-compose exec django-4.0.2 python3 manage.py runserver 0.0.0.0:8000
       # - name: Set up Python ${{ matrix.python-version }}
       #   uses: actions/setup-python@v2
       #   with:
